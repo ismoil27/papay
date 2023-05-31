@@ -15,6 +15,7 @@ const memberSchema = new mongoose.Schema(
     mb_phone: {
       type: String,
       required: true,
+      index: { unique: true, sparse: true },
     },
     mb_password: {
       type: String,
@@ -26,16 +27,16 @@ const memberSchema = new mongoose.Schema(
       required: false,
       default: "USER",
       enum: {
-        value: member_type_enums,
+        values: member_type_enums,
         message: "{VALUE} is not among permitted values",
       },
     },
-    mb_statu: {
+    mb_status: {
       type: String,
       required: false,
       default: "ACTIVE",
       enum: {
-        value: member_status_enums,
+        values: member_status_enums,
         message: "{VALUE} is not among permitted values",
       },
     },
@@ -61,7 +62,7 @@ const memberSchema = new mongoose.Schema(
       required: false,
       default: "N",
       enum: {
-        value: ordinary_enums,
+        values: ordinary_enums,
         message: "{VALUE} is not among permitted values",
       },
     },
