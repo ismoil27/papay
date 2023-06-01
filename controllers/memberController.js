@@ -1,8 +1,8 @@
 const Member = require("../models/Member");
 
-let memeberController = module.exports;
+let memberController = module.exports;
 
-memeberController.signup = async (req, res) => {
+memberController.signup = async (req, res) => {
   try {
     console.log("POST: cont/signup");
     const data = req.body,
@@ -16,7 +16,7 @@ memeberController.signup = async (req, res) => {
   }
 };
 
-memeberController.login = async (req, res) => {
+memberController.login = async (req, res) => {
   try {
     console.log("POST: cont/login");
     const data = req.body,
@@ -30,7 +30,7 @@ memeberController.login = async (req, res) => {
   }
 };
 
-memeberController.logout = (req, res) => {
+memberController.logout = (req, res) => {
   console.log("GET cont.logout");
   res.send("logout sahifasidasiz");
 };
