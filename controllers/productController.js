@@ -1,3 +1,7 @@
+const Product = require("../models/Product");
+const assert = require("assert");
+const Definer = require("../lib/mistake");
+
 let productController = module.exports;
 
 productController.getAllProducts = async (req, res) => {
@@ -12,9 +16,27 @@ productController.getAllProducts = async (req, res) => {
 productController.addNewProduct = async (req, res) => {
   try {
     console.log("POST: cont/addNewProduct");
-    // TODO: rpoduct creation develop
 
-    res.send("ok");
+    // console.log("req.files::", req.files);
+    assert(req.files, Definer.general_err3);
+
+    const product = new Product();
+    let data = req.body;
+    // console.log("req.body", req.body);
+    // console.log("data1", data);
+
+    data.product_images = req.files.map((ele) => {
+      return ele.path;
+    });
+
+    // console.log("data2=====", data);
+
+    const result = await product.addNewProductData(data, req.member);
+    const html = `<script>
+                     alert(new dish added successfully);
+                     window.location.replace('/resto/products/menu')
+                  </script>`;
+    res.end(html);
   } catch (err) {
     console.log(`ERROR, cont/addNewProduct, ${err.message}`);
   }
