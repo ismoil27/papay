@@ -29,6 +29,8 @@ productController.addNewProduct = async (req, res) => {
       return ele.path;
     });
 
+    console.log("req=========", req);
+
     // console.log("data2=====", data);
 
     const result = await product.addNewProductData(data, req.member);
@@ -47,7 +49,7 @@ productController.updateChosenProduct = async (req, res) => {
     console.log("POST: cont/updateChosenProduct");
     const product = new Product();
     const id = req.params.id;
-    console.log("req.params.id", req.params.id);
+    // console.log("req===========", req);
 
     const result = await product.updateChosenProductData(
       id,
