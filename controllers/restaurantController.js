@@ -58,7 +58,7 @@ restaurantController.signupProcess = async (req, res) => {
     req.session.member = result;
     res.redirect("/resto/products/menu");
   } catch (err) {
-    console.log(`ERROR, cont/signup, ${err.message}`);
+    console.log(`ERROR, cont/signupProcess, ${err.message}`);
     res.json({ state: "fail", message: err.message });
   }
 };

@@ -4,7 +4,7 @@
 
 <body>
   <form
-    onsubmit="return validateSignUpForm()"
+    onsubmit="return validateSignUpform()"
     class="login_container"
     action="/resto/sign-up"
     method="POST"
@@ -14,7 +14,8 @@
       <div class="login_top">
         <span>Ro'yhatdan o'tish</span>
         <div>
-          Bosh sahifaga qaytish <a href="/resto" style="color: #6440fb">Home</a>
+          Bosh sahifaga qaytish
+          <a href="/resto" style="color: #6440fb">Home</a>
         </div>
         <p>
           Ro'yhatdan allaqachon o'tganmisiz?
@@ -24,24 +25,24 @@
 
       <div class="sign_input_frame">
         <div class="sign_up_frame">
-          <label>Foydalanuvchining ismi</label>
+          <label for="">Foydalanuvchining ismi</label>
           <input
             type="text"
-            name="mb_nick"
             class="mb_nick"
             placeholder="Foydalanuvchining ismi"
+            name="mb_nick"
+            id=""
             value=""
             required
           />
         </div>
         <div class="sign_up_frame">
-          <label for="">Telefon raqamingiz</label>
+          <label for="">Telefon raqam</label>
           <input
             type="text"
-            name="mb_phone"
             class="mb_phone"
             placeholder="Telefon raqam"
-            value=""
+            name="mb_phone"
             required
           />
         </div>
@@ -49,12 +50,11 @@
 
       <div class="sign_input_frame">
         <div class="sign_up_frame">
-          <label>Password</label>
+          <label for="">Password</label>
           <input
+            type="password"
             class="mb_password"
             placeholder="passwordni kiriting"
-            type="password"
-            value=""
             name="mb_password"
             required
           />
@@ -62,10 +62,9 @@
         <div class="sign_up_frame">
           <label for="">Passwordni qayta kiriting</label>
           <input
+            type="password"
             class="mb_confirm_password"
             placeholder="passwordni tasdiqlash"
-            type="password"
-            value=""
             name="mb_confirm_password"
             required
           />
@@ -83,10 +82,10 @@
             <span class="media_text">Taom Rasmi</span>
             <div class="filebox bs3-primary preview-image">
               <input
-                type="text"
-                class="upload-name"
+                class="upload_name"
                 value="Rasmni tanlang"
                 disabled="disabled"
+                type=""
               />
               <label for="input_file">Rasm Yuklash</label>
               <input
@@ -97,15 +96,13 @@
               />
             </div>
             <p class="thumbnail_desc">
-              Oshxona rasmingizni bu yerga yuklang. <br />
-              Muhim ko'rsatmalar: .jpg, .jpeg, yoki .png. <br />
-              Rasmda matn yo'q bo'lishi darkor!
+              Oshxona rasmingizni bu yerga yuklang!<br />Muhim ko'rsatmalar:
+              .jpg, .jpeg, yoki .png <br />rasmda matn yo'q bo'lishi darkor!
             </p>
           </div>
         </div>
       </div>
-
-      <button class="login_btn btn" name="signup" type="submit">
+      <button class="login_btn" name="signup" type="submit">
         Ro'yhatdan o'tish
       </button>
     </div>
@@ -123,7 +120,7 @@
         const validImageTypes = ["image/jpg", "image/jpeg", "image/png"];
         if (!validImageTypes.includes(fileType)) {
           alert(
-            "Iltimos ruhsat etilgan formatdagi rasmlarni yuklang: jpg, jpeg va png"
+            "Iltimos ruxsat etilgan formatdagi rasmlarni yuklang: jpg, jpeg va png!"
           );
         } else {
           if (uploading_file) {
@@ -136,16 +133,16 @@
         }
       }
 
-      $(this).siblings(".upload-name").val(filename);
+      $(this).siblings(".upload_name").val(filename);
     });
   });
 
-  function validateSignUpForm() {
+  function validateSignUpform() {
     const mb_nick = $(".mb_nick").val();
     const mb_phone = $(".mb_phone").val();
     const mb_password = $(".mb_password").val();
     const mb_confirm_password = $(".mb_confirm_password").val();
-    const restaurant_img = $(".restaurant_img").get[0].files[0] ?? null;
+    const restaurant_img = $(".restaurant_img").get(0).files[0] ?? null;
 
     if (
       mb_nick == "" ||
@@ -153,10 +150,10 @@
       mb_password == "" ||
       mb_confirm_password == ""
     ) {
-      alert("Iltimos hamma malumotlarni kiriting!");
+      alert("Iltimos hamma malumotlarni kiriting");
       return false;
     } else if (mb_password !== mb_confirm_password) {
-      alert(`Iltimos passwordni to'g'ri kiriting!`);
+      alert(`Iltimos passwordni to'g'ri kiriting`);
       return false;
     }
 
