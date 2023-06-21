@@ -140,7 +140,7 @@ input:checked + .slider:before {
   font-weight: 400;
   font-size: 30px;
   line-height: 25px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .long_input {

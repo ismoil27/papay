@@ -95,6 +95,7 @@ restaurantController.loginProcess = async (req, res) => {
 restaurantController.logoutProcess = (req, res) => {
   try {
     console.log("GET: cont/logout");
+    // console.log("req.session", req.session);
     req.session.destroy(function () {
       res.redirect("/resto");
     });
