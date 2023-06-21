@@ -16,22 +16,14 @@ productController.getAllProducts = async (req, res) => {
 productController.addNewProduct = async (req, res) => {
   try {
     console.log("POST: cont/addNewProduct");
-
-    // console.log("req.files::", req.files);
     assert(req.files, Definer.general_err3);
 
     const product = new Product();
     let data = req.body;
-    // console.log("req.body", req.body);
-    // console.log("data1", data);
 
     data.product_images = req.files.map((ele) => {
       return ele.path;
     });
-
-    // console.log("req=========", req);
-
-    // console.log("data2=====", data);
 
     const result = await product.addNewProductData(data, req.member);
     const html = `<script>
