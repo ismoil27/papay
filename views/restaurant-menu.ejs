@@ -48,7 +48,7 @@
               <td><%= value.product_price %></td>
               <td><%= value.product_left_cnt %></td>
               <td>
-                <select class="spec_select new_product_status" name="" id="<%= value._id %>">
+                <select class="spec_select new_product_status"  id="<%= value._id %>">
                   <option value="PAUSED"  <%= value.product_status === "PAUSED" ? 'selected' : '' %>  >PAUSED</option>
                   <option value="PROCESS" <%= value.product_status === "PROCESS" ? 'selected' : '' %>  >PROCESS</option>
                 </select>
@@ -70,7 +70,7 @@
 
           <div>
               <div class="long_input">
-                <label for="">Taom Nomi</label>
+                <label >Taom Nomi</label>
                 <input type="text" placeholder="Taom nomi" name="product_name" class="product_name" >
               </div>
               <input type="text" name="product_status" value="PAUSED" class="product_status" hidden>
@@ -82,7 +82,7 @@
               <input type="number" placeholder="Taom narxi" name="product_price" class="product_price" >
             </div>
             <div class="half_input">
-              <label for="">Taom Qoldiq Miqdori</label>
+              <label >Taom Qoldiq Miqdori</label>
                 <input type="number" placeholder="Taom Mavjud Miqdori" name="product_left_cnt" class="product_left_cnt" >
             </div>
           </div>
@@ -91,8 +91,8 @@
             <div class="half_input_frame">
 
               <div class="half_input">
-                <label for="">Taom Turi</label>
-                <select name="product_collection" id="" class="product_collection">
+                <label >Taom Turi</label>
+                <select name="product_collection"  class="product_collection">
                   <option value="dish" selected>Taom</option>
                   <option value="salad" >Salat</option>
                   <option value="dessert" >Dessert</option>
@@ -104,8 +104,8 @@
 
               <!-- id product_size div started -->
               <div class="half_input" id="product_size">
-                <label for="">Taom Hajmi</label>
-                <select name="product_size" id="" class="product_size">
+                <label >Taom Hajmi</label>
+                <select name="product_size" class="product_size">
                   <option value="small" >Kichkina</option>
                   <option value="normal" selected>O'rtacha</option>
                   <option value="large" >Katta</option>
@@ -114,8 +114,8 @@
               </div>
 
               <div class="half_input" id="product_volume" style="display: none;">
-                <label for="">Ichimlik Hajmi</label>
-                <select name="product_volume" id="" class="product_volume">
+                <label >Ichimlik Hajmi</label>
+                <select name="product_volume"  class="product_volume">
                   <option value="0.5" >0.5 litr</option>
                   <option value="1" selected>1 litr</option>
                   <option value="1.2" >1.2 litr</option>
@@ -126,7 +126,7 @@
             </div>
 
             <div class="long_input">
-              <label for=""> Taom Haqida </label>
+              <label > Taom Haqida </label>
               <textarea name="product_description" class="product_description" ></textarea>
             </div>
 
