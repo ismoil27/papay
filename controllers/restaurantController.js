@@ -7,7 +7,7 @@ let restaurantController = module.exports;
 
 restaurantController.home = async (req, res) => {
   try {
-    console.log("GET: const/home");
+    console.log("GET: cont/home");
     res.render("home-page");
   } catch (err) {
     console.log(`ERROR, cont/home, ${err.message}`);
@@ -122,5 +122,28 @@ restaurantController.checkSessions = (req, res) => {
     res.json({ state: "succeed", data: req.session.member });
   } else {
     res.json({ state: "fail", message: "You are not authenticated" });
+  }
+};
+
+restaurantController.validateAdmin = (req, res, next) => {
+  if (req.session?.member?.mb_type === "ADMIN") {
+    req.member = req.session.member;
+    next();
+  } else {
+    const html = `<script> 
+                    alert('Admin page: Permission denied!');
+                    window.location.replace('/resto');
+                  </script>`;
+    res.end(html);
+  }
+};
+
+restaurantController.getAllRestaurants = (req, res) => {
+  try {
+    console.log("GET: cont/getAllRestaurants");
+    res.render("all-restaurants");
+  } catch (err) {
+    console.log(`ERROR, cont/getAllRestaurants, ${err.message}`);
+    res.json({ state: "fail", message: err.message });
   }
 };
